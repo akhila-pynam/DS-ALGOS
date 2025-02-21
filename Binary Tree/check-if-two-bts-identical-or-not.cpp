@@ -20,9 +20,9 @@ Node* newNode(int value) {
 Node* binarytree() {
     int value;
     cin >> value;
-    
+
     if (value == -1) return nullptr;
-    Node* node = newNode(value);
+    Node* node = new Node(value);
     node->left = binarytree();
     node->right = binarytree();
     return node;
