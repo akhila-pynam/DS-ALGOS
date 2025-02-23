@@ -75,13 +75,6 @@ int main(){
 	vector<int> result;
 	result.push_back(root->data);
 
-	if(root->right == nullptr && root->left == nullptr) {
-
-         for (int value : result) {
-            cout << value << " ";
-         }
-	}
-
     leftBoundary(root->left, result);
     leafnodesBoundary(root, result);
     rightBoundary(root->right, result);
