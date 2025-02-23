@@ -83,5 +83,5 @@ int main(){
         cout << value << " ";
     }
     
-    return 0
+    return 0;
 }
