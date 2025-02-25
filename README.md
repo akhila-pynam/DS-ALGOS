@@ -1,1 +1,1 @@
-# DS-ALGOS 🍑
+# DS-ALGOS🌶️
