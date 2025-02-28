@@ -13,27 +13,27 @@ struct Node {
     }
 };
 
-Node* buildTreeHelper(vector<int>& preorder, int preStart, int preEnd,
+Node* buildTreeHelper(vector<int>& postorder, int postStart, int postEnd,
                       vector<int>& inorder, int inStart, int inEnd, 
-                      map<int, int>& inMap){
+                      map<int, int>& inMap) {
 
-    if (preStart > preEnd || inStart > inEnd) return nullptr;
+    if (postStart > postEnd || inStart > inEnd) return nullptr;
 
-    Node* root = new Node(preorder[preStart]);
+    Node* root = new Node(postorder[postEnd]);
 
     int inRoot = inMap[root->val];
     int numsLeft = inRoot - inStart;
 
-    root->left = buildTreeHelper(preorder, preStart + 1, preStart + numsLeft,
-                                 inorder, inStart, inRoot - 1, inMap);
-
-    root->right = buildTreeHelper(preorder, preStart + numsLeft + 1, preEnd,
+    root->right = buildTreeHelper(postorder, postStart + numsLeft, postEnd - 1,
                                   inorder, inRoot + 1, inEnd, inMap);
+
+    root->left = buildTreeHelper(postorder, postStart, postStart + numsLeft - 1,
+                                 inorder, inStart, inRoot - 1, inMap);
 
     return root;
 }
 
-Node* buildTree(vector<int>& preorder, vector<int>& inorder) {
+Node* buildTree(vector<int>& postorder, vector<int>& inorder) {
 
     map<int, int> inMap;
 
@@ -41,10 +41,8 @@ Node* buildTree(vector<int>& preorder, vector<int>& inorder) {
         inMap[inorder[i]] = i;
     }
 
-    Node* root = buildTreeHelper(preorder, 0, preorder.size() - 1,
-                                 inorder, 0, inorder.size() - 1, inMap);
-
-    return root;
+    return buildTreeHelper(postorder, 0, postorder.size() - 1,
+                           inorder, 0, inorder.size() - 1, inMap);
 }
 
 void printInorder(Node* root) {
@@ -54,11 +52,11 @@ void printInorder(Node* root) {
     printInorder(root->right);
 }
 
-void printPreorder(Node* root) {
+void printPostorder(Node* root) {
     if (root == nullptr) return;
+    printPostorder(root->left);
+    printPostorder(root->right);
     cout << root->val << " ";
-    printPreorder(root->left);
-    printPreorder(root->right);
 }
 
 void printLevelOrder(Node* root) {
@@ -78,13 +76,12 @@ void printLevelOrder(Node* root) {
 
                 q.push(node->left);
                 q.push(node->right);
-            } else {
-                cout << "null ";
             }
         }
     }
     cout << endl;
 }
+
 int main() {
 
     #ifndef ONLINE_JUDGE
@@ -95,12 +92,12 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> preorder(n), inorder(n);
+    vector<int> postorder(n), inorder(n);
 
-    for (int i = 0; i < n; i++) cin >> preorder[i];
+    for (int i = 0; i < n; i++) cin >> postorder[i];
     for (int i = 0; i < n; i++) cin >> inorder[i];
 
-    Node* root = buildTree(preorder, inorder);
+    Node* root = buildTree(postorder, inorder);
     
     cout << "Level Order Traversal : ";
     printLevelOrder(root);
