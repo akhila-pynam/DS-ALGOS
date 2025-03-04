@@ -13,15 +13,15 @@ struct Node{
 	}
 };
 
-Node* binarytree(){
+Node* binarySearchtree(){
 	int value;
 	cin >> value;
 
 	if(value == -1) return nullptr;
 
 	Node* node = new Node(value);
-	node->left = binarytree();
-	node->right = binarytree();
+	node->left = binarySearchtree();
+	node->right = binarySearchtree();
 	return node;
 }
 
@@ -71,7 +71,7 @@ int main(){
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	Node* root = binarytree();
+	Node* root = binarySearchtree();
 
 	int val;
 	cin >> val;
