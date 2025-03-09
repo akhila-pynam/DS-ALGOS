@@ -8,19 +8,27 @@ int main() {
     freopen("output.txt", "w", stdout);
     #endif
 
-    int n, m;
-    cin >> n >> m;
+    int n;
+	int m;
+
+	cin >> n;
+	cin >> m;
 
     int adj[n+1][n+1] = {0};
 
     for (int i = 0; i < m; i++) {
-        int u, v;
-        cin >> u >> v;
-        adj[u][v] = 1;
-        adj[v][u] = 1;
+ 
+	    int u;
+		int v;
+
+		cin >> u;
+		cin >> v;
+
+	    adj[u][v] = 1;
+	    adj[v][u] = 1;
+        
     }
 
-    cout << "Adjacency Matrix:" << endl;
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             cout << adj[i][j] << " ";
