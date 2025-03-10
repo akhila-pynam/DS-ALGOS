@@ -22,6 +22,7 @@ void bfs(int root, vector<int> adj[], vector<int>& ans, vector<int>& vis, int n)
 }
 
 int main() {
+    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
