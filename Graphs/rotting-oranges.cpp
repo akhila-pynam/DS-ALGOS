@@ -9,8 +9,8 @@ int rottingOranges(vector<vector<int>>& Matrix) {
     int fresh = 0;
     int time = 0;
 
-    for (int i = 0; i < row; ++i) {
-        for (int j = 0; j < column; ++j) {
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
             if (Matrix[i][j] == 2) rotten.push({i, j});
             else if (Matrix[i][j] == 1) fresh++;
         }
@@ -20,7 +20,7 @@ int rottingOranges(vector<vector<int>>& Matrix) {
 
         int num = rotten.size();
 
-	        for (int i = 0; i < num; ++i) {
+	        for (int i = 0; i < num; i++) {
 
 	            int x = rotten.front().first;
 	            int y = rotten.front().second;
