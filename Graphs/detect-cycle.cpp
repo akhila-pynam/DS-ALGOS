@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool detectCycle(int root, vector<int> adj[], vector<int>& vis, int n) {
+bool detectCycle(int root, vector<int> adj[], vector<int>& visited, int n) {
 	
     queue<pair<int, int>> q;
     q.push({root, -1});
-    vis[root] = 1;
+    visited[root] = 1;
 
     while (!q.empty()) {
 
@@ -14,8 +14,8 @@ bool detectCycle(int root, vector<int> adj[], vector<int>& vis, int n) {
         q.pop();
 
         for (auto neighbor : adj[node]) {
-            if (!vis[neighbor]) {
-                vis[neighbor] = 1;
+            if (!visited[neighbor]) {
+                visited[neighbor] = 1;
                 q.push({neighbor, node});
             }
             else if (neighbor != parent) {
@@ -44,13 +44,13 @@ int main() {
         adj[v].push_back(u);
     }
 
-    vector<int> vis(n + 1, 0);
+    vector<int> visited(n + 1, 0);
 
     bool cycleDetected = false;
 
     for (int i = 1; i <= n; i++) {
-        if (!vis[i]) {
-            if (detectCycle(i, adj, vis, n)) {
+        if (!visited[i]) {
+            if (detectCycle(i, adj, visited, n)) {
                 cycleDetected = true;
                 break;
             }
