@@ -14,13 +14,16 @@ bool detectCycle(int root, vector<int> adj[], vector<int>& visited, int n) {
         q.pop();
 
         for (auto neighbor : adj[node]) {
+
             if (!visited[neighbor]) {
                 visited[neighbor] = 1;
                 q.push({neighbor, node});
             }
+
             else if (neighbor != parent) {
                 return true;
             }
+            
         }
     }
     return false;
