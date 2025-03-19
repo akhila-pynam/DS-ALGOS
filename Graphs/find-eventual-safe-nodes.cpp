@@ -2,6 +2,7 @@
 using namespace std;
 
 void findeventualSafestates(int n, vector<int>& indegree, vector<int>& ans, vector<vector<int>>& adjList) {
+   
     vector<vector<int>> reverseGraph(n);
     for (int i = 0; i < n; i++) {
         for (auto neighbor : adjList[i]) {
@@ -10,9 +11,11 @@ void findeventualSafestates(int n, vector<int>& indegree, vector<int>& ans, vect
     }
 
     for (int i = 0; i < n; i++) {
+
         for (auto neighbor : reverseGraph[i]) {
             indegree[neighbor]++;
         }
+
     }
 
     queue<int> q;
@@ -23,15 +26,18 @@ void findeventualSafestates(int n, vector<int>& indegree, vector<int>& ans, vect
     }
 
     while (!q.empty()) {
+
         int node = q.front();
         q.pop();
         ans.push_back(node);
+
         for (auto neighbor : reverseGraph[node]) {
             indegree[neighbor]--;
             if (indegree[neighbor] == 0) {
                 q.push(neighbor);
             }
         }
+        
     }
 }
 
@@ -49,7 +55,7 @@ int main() {
     vector<int> ans;
 
     for (int i = 0; i < m; i++) {
-    	
+
         int u, v;
         cin >> u >> v;
 
