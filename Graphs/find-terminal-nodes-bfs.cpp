@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void findEventualsafestatesBfs(int root, vector<int>& visited, vector<int>& ans, vector<vector<int>>& adj) {
+void findTerminalnodes(int root, vector<int>& visited, vector<int>& ans, vector<vector<int>>& adj) {
    
     visited[root] = 1;
     queue<int> q;
@@ -46,7 +46,7 @@ int main() {
     
     for(int i = 0; i < n; i++) {
         if(!visited[i]) {
-            findEventualsafestatesBfs(i, visited, ans, adj);
+            findTerminalnodes(i, visited, ans, adj);
         }
     }
     
