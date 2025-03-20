@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int topokhansAlgo(vector<vector<int>>& adjList, vector<int>& indegree, int n, vector<int>& topo) {
+bool topokhansAlgo(vector<vector<int>>& adjList, vector<int>& indegree, int n, vector<int>& topo) {
     
     for (int i = 0; i < n; i++) {
         for (auto neighbor : adjList[i]) {
@@ -33,7 +33,7 @@ int topokhansAlgo(vector<vector<int>>& adjList, vector<int>& indegree, int n, ve
 }
 
 int main() {
-	
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -43,22 +43,28 @@ int main() {
     cin >> n >> m;
 
     vector<vector<int>> adjList(n);
-    for (int i = 0; i < m; i++) {
+    for (int i=0; i<n ; i++) {
+        
         int u, v;
         cin >> u >> v;
         adjList[u].push_back(v);
     }
 
+
     vector<int> indegree(n, 0);
     vector<int> topo;
 
     topokhansAlgo(adjList, indegree, n, topo);
+    sort(topo.begin(), topo.end());
+    reverse(topo.begin(), topo.end());
 
-    if (topokhansAlgo){
-        for (int node : topo) {
+
+    if(topokhansAlgo){
+
+        for (int node : topo){
             cout << node << " ";
         }
-    }
+    } 
 
     return 0;
 }
