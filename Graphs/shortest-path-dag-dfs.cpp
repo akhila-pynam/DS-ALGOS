@@ -1,28 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void SpathDAGdfs(int source, vector<int>& visited, vector<vector<pair<int, int>>>& adj, vector<int>& distance, stack<int>& st) {
+void SpathDAGdfs(int source, vector<int>& visited, stack<int>& Scontainer, vector<vector<pair<int,int>>>& adj, vector<int>& distance) {
    
-    st.push(source);
-    visited[source] = 1;
+    Scontainer.push(source);
     distance[source] = 0;
+    visited[source] = 1;
 
-    while (!st.empty()) {
-        int stackElement = st.top();
-        st.pop();
+    while (!Scontainer.empty()) {
 
-        for (auto& neighbor : adj[stackElement]) {
+        int stackElement = Scontainer.top();
+        Scontainer.pop();
 
-            int node = neighbor.first;
-            int edgeweight = neighbor.second;
+        for (auto neighbor : adj[stackElement]){
 
-            if (distance[stackElement] + edgeweight < distance[node]){
+            int neiNode = neighbor.first;
+            int neiNodeweight = neighbor.second;
 
-                distance[node] = distance[stackElement] + edgeweight;
+            if (distance[stackElement] + neiNodeweight < distance[neiNode]) {
+                
+                distance[neiNode] = distance[stackElement] + neiNodeweight;
 
-                if (!visited[node]) {
-	                visited[node] = 1;
-	                st.push(node);
+                if (!visited[neiNode]) {
+                    visited[neiNode] = 1;
+                    Scontainer.push(neiNode);
                 }
             }
         }
@@ -41,38 +42,33 @@ int main() {
     vector<vector<pair<int, int>>> adj(n);
 
     for (int i = 0; i < m; i++) {
-        int u, v, w;
-        cin >> u >> v >> w;
-        adj[u].push_back({v, w});
+
+        int node, element, weight;
+        cin >> node >> element >> weight;
+
+        adj[node].push_back({element, weight});
+        
     }
 
-
-    cout << "AdjList : " << endl;
     for (int i = 0; i < n; i++) {
-        for (auto& neighbor : adj[i]) {
-            cout << neighbor.first << " ";
+        for (auto neighbor : adj[i]) {
+            cout << "[" << neighbor.first << " " << neighbor.second << "]";
         }
         cout << endl;
     }
 
-
-
-    int source = 0;
-    vector<int> distance(n, INT_MAX);
-   
-
     vector<int> visited(n, 0);
-    stack<int> st;
+    vector<int> distance(n, INT_MAX);
+    stack<int> Scontainer;
+    int source = 0;
 
-    SpathDAGdfs(source, visited, adj, distance, st);
+    SpathDAGdfs(source, visited, Scontainer, adj, distance);
 
-    cout << "SpathDAG : ";
-    for (int i = 0; i < n; i++){
-
+    cout << "SpathDAG: ";
+    for (int i = 0; i < n; i++) {
         if (distance[i] != INT_MAX) {
             cout << distance[i] << " ";
         }
-  
     }
     cout << endl;
 
