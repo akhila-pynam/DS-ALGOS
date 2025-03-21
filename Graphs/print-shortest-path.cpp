@@ -14,13 +14,14 @@ void printPath(vector<int>& parent, int node) {
         cout << path.top() << " ";
         path.pop();
     }
-    
+
 }
 
 void shortestPath(vector<int>& distance, vector<int>& parent, int source, vector<vector<pair<int, int>>>& adj,
-                  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>& pq) {
+                  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>>& pq, vector<int>& visited) {
 
     distance[source] = 0;
+    visited[source] = 1;
     pq.push({source, 0});
 
     while (!pq.empty()) {
@@ -34,13 +35,20 @@ void shortestPath(vector<int>& distance, vector<int>& parent, int source, vector
             int neiNode = neighbor.first;
             int neiWeight = neighbor.second;
 
-            if (distance[pqElement] + neiWeight < distance[neiNode]) {
+            if(!visited[neiNode]){
+
+            	visited[neiNode] = 1;
+                
+                if(distance[pqElement] + neiWeight < distance[neiNode]) {
 
                 distance[neiNode] = distance[pqElement] + neiWeight;
                 parent[neiNode] = pqElement;
                 pq.push({neiNode, distance[neiNode]});
 
+                }
+
             }
+
         }
     }
 }
@@ -66,16 +74,24 @@ int main(){
         adj[element].push_back({node, weight});
     }
 
+    for(int i=1; i<n; i++){
+	    for(auto neighbor : adj[i]){
+	    	cout << "[" << neighbor.first << "," << neighbor.second << "]";
+	    }
+	    cout << endl;
+    }
+
     vector<int> distance(n + 1, INT_MAX);
     vector<int> parent(n + 1, -1);
-
+    vector<int> visited(n + 1, 0);
+    
     // Here In Priority Queue , We Need To Give Priority To the Smallest Path In The " pq container "
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
     int source = 1;
     int end = 4;
 
-    shortestPath(distance, parent, source, adj, pq);
+    shortestPath(distance, parent, source, adj, pq, visited);
 
     if (distance[end] != INT_MAX) {
         cout << "SPath: ";
