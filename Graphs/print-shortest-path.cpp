@@ -68,7 +68,8 @@ int main(){
 
     vector<int> distance(n + 1, INT_MAX);
     vector<int> parent(n + 1, -1);
-    
+
+    // Here In Priority Queue , We Need To Give Priority To the Smallest Path In The " pq container "
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
     int source = 1;
