@@ -20,7 +20,7 @@ int minMulreachend(int n, int array[], vector<int>& visited, int start, int end)
             if(newNode == end) return distance + 1;
 
             if(!visited[newNode]){
-               
+
                 q.push({newNode, distance + 1});
                 visited[newNode] = 1;
                 
