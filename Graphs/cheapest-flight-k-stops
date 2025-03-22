@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int cheapestFlight(vector<vector<pair<int, int>>>& adj, vector<int>& distance, int source, int destination, int k) {
+    
+    queue<pair<int, pair<int, int>>> q;
+    distance[source] = 0;
+
+    // ({distance, {source, stops}};
+    q.push({0, {source, 0}});
+    
+    while (!q.empty()) {
+       
+        auto qPair = q.front();
+        q.pop();
+        
+        int dist = qPair.first;
+        int node = qPair.second.first;
+        int stops = qPair.second.second;
+        
+        if (stops <= k) {
+            for (auto neighbor : adj[node]) {
+                
+                int neiNode = neighbor.first;
+                int neiWeight = neighbor.second;
+                
+                if (dist + neiWeight < distance[neiNode]) {
+                   
+                    distance[neiNode] = dist + neiWeight;
+                    q.push({distance[neiNode], {neiNode, stops + 1}});
+                }
+            }
+        }
+    }
+    
+    return distance[destination];
+}
+
+int main() {
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+    
+    int n, m;
+    cin >> n >> m;
+    
+    vector<vector<pair<int, int>>> adj(n);
+
+    for (int i = 0; i < m; i++) {
+        
+        int node, element, weight;
+        cin >> node >> element >> weight;
+        adj[node].push_back({element, weight});
+
+    }
+    
+    int k, destination;
+    cin >> k >> destination;
+    
+    vector<int> distance(n, INT_MAX);
+    int source = 0;
+    
+    int result = cheapestFlight(adj, distance, source, destination, k);
+    cout << result;
+    
+    return 0;
+}
