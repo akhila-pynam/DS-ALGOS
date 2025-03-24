@@ -39,6 +39,7 @@ void unionSize(int u, int v) {
 }
 
 int main() {
+    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
