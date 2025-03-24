@@ -4,15 +4,30 @@ using namespace std;
 vector<int> parent;
 vector<int> Rank;
 
-int findParent(int node) {
+int disjointSet(int n) {
 
-    if (node == parent[node]) return node;
-    return parent[node] = findParent(parent[node]);
+    parent.resize(n + 1);
+    Rank.resize(n + 1, 0);
 
+    for (int i=0; i<n; ++i) {
+        parent[i] = i;
+    }
+
+    for (int i=0; i<n; i++) {
+        int ele1, ele2;
+        cin >> ele1 >> ele2;
+    }
+
+    return n;
 }
 
-void unionRank(int u, int v, int n) {
+int findParent(int node) {
+    if (node == parent[node]) return node;
+    return parent[node] = findParent(parent[node]);
+}
 
+void unionRank(int u, int v) {
+    
     int ulp_u = findParent(u);
     int ulp_v = findParent(v);
 
@@ -28,7 +43,6 @@ void unionRank(int u, int v, int n) {
         parent[ulp_v] = ulp_u;
         Rank[ulp_u]++;
     }
-
 }
 
 int main() {
@@ -39,46 +53,29 @@ int main() {
     #endif
 
     int n;
-    cin >> n;
+    cin >> n; 
 
-    for(int i=0; i<n; i++){
-       
-        int ele1, ele2;
-        cin >> ele1 >> ele2;
+    disjointSet(n);
 
-    }
-
-    parent.resize(n + 1);
-    Rank.resize(n + 1, 0);
-
-    for (int i = 1; i <= n; ++i) {
-        parent[i] = i;
-    }
-
-    for(int i=1; i<=n; i++){
-        cout << parent[i] << " ";
-    }
-    cout << endl;
-
-    
-    if(findParent(1) == findParent(3)) {
+    if (findParent(1) == findParent(3)) {
         cout << "Same\n";
     } 
-    else{
+    else {
         cout << "Not same\n";
     }
 
-    unionRank(1, 3, n);
+    unionRank(1, 3);
 
-    if(findParent(1) == findParent(3)) {
+    if (findParent(1) == findParent(3)) {
         cout << "Same\n";
     } 
-    else{
+    else {
         cout << "Not same\n";
     }
 
     return 0;
 }
+
 
 // INPUT : 
 
