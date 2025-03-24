@@ -46,10 +46,13 @@ int main(){
     vector<vector<pair<int, int>>> adjList(n);
 
     for (int i = 0; i < m; i++) {
+
         int u, v, w;
         cin >> u >> v >> w;
+
         adjList[u].push_back({v, w});
         adjList[v].push_back({u, w});
+        
     }
 
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
