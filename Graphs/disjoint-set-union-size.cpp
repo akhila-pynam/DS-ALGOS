@@ -39,7 +39,6 @@ void unionSize(int u, int v) {
 }
 
 int main() {
-    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -63,11 +62,6 @@ int main() {
         parent[i] = i;
         WordSize[i] = 1; 
     }
-
-    for (int i = 1; i <= n; i++) {
-        cout << parent[i] << " ";
-    }
-    cout << endl;
 
 
     unionSize(3, 7);
@@ -104,8 +98,7 @@ int main() {
 
 
 // OUTPUT :
-
-// 1 2 3 4 5 6 7 
+ 
 // Same
 // Not same
 

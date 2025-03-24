@@ -28,12 +28,6 @@ void unionRank(int u, int v, int n) {
         parent[ulp_v] = ulp_u;
         Rank[ulp_u]++;
     }
- 
-
-    for(int i=1; i<=n; i++){
-        cout << Rank[i] << " ";
-    }
-    cout << endl;
 
 }
 
@@ -83,7 +77,6 @@ int main() {
         cout << "Not same\n";
     }
 
-
     return 0;
 }
 
@@ -97,11 +90,8 @@ int main() {
 // 5 6
 // 3 7 
 
-
 // OUTPUT :
 
-// 1 2 3 4 5 6 
-// Not same
-// 1 0 0 0 0 0 
 // Same
+// Not same
 
