@@ -56,7 +56,7 @@ int disjointSet(int n){
 
             account.push_back(mail);
 
-            if(mapMailNode.find(mail) == mapMailNode.end()) {
+            if(mapMailNode.find(mail) == mapMailNode.end()){
                 mapMailNode[mail] = i;
             } 
             else{
