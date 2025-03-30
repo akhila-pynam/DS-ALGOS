@@ -5,13 +5,13 @@ void dfs(int node, int parent, vector<vector<int>>& adj, vector<int>& discovery,
          vector<int>& lowTime, vector<int>& visited, int& time, vector<int>& articulationPoints) {
     
     visited[node] = 1;
-    discovery[node] = lowTime[node] = time++;
+    discovery[node] = time;
+    lowTime[node] = time;
+    time++;
     int children = 0;
     
     for (auto neighbor : adj[node]) {
         
-        if (neighbor == parent) continue;
-
         if (!visited[neighbor]) {
             
             children++;
@@ -54,7 +54,7 @@ int main() {
     freopen("output.txt", "w", stdout);
     #endif
 
-    int n, m;
+    int n, m; // nodes, edges
     cin >> n >> m;
 
     vector<vector<int>> adj(n);
@@ -76,3 +76,27 @@ int main() {
 
     return 0;
 }
+
+// INPUT :
+
+// 7 16  
+// 0 1
+// 0 2
+// 0 3
+// 1 0
+// 2 0
+// 2 3 
+// 2 4 
+// 2 5 
+// 3 2 
+// 3 0 
+// 4 2
+// 4 6 
+// 5 2 
+// 5 6
+// 6 4
+// 6 5
+
+// OUTPUT : 
+
+// 0 2

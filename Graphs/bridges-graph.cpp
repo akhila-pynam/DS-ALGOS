@@ -5,8 +5,11 @@ void dfs(int node, int parent, vector<vector<int>>& adj, vector<int>& discovery,
          vector<int>& lowTime, vector<int>& visited, int time, vector<pair<int, int>>& bridges){
     
     visited[node] = 1;
-    discovery[node] = lowTime[node] = time++;
-    
+    discovery[node] = time;
+    lowTime[node] = time;
+    time++;
+
+
     for(auto neighbor : adj[node]){
         if(neighbor == parent) continue;
 
@@ -46,7 +49,7 @@ vector<pair<int, int>> bridgeGraph(int n, vector<vector<int>>& adj){
     return bridges;
 }
 
-int main(){
+int main() {
     
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
@@ -76,6 +79,7 @@ int main(){
 
     return 0;
 }
+
 
 // INPUT : 
 
