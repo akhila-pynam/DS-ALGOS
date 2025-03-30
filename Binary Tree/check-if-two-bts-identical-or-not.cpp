@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
     int data;
     Node* left;
     Node* right;
@@ -11,6 +12,7 @@ struct Node{
         left = nullptr;
         right = nullptr;
     }
+    
 };
 
 Node* newNode(int value) {
@@ -18,14 +20,17 @@ Node* newNode(int value) {
 }
 
 Node* binarytree() {
+
     int value;
     cin >> value;
 
     if (value == -1) return nullptr;
+
     Node* node = new Node(value);
     node->left = binarytree();
     node->right = binarytree();
     return node;
+
 }
 
 bool isSameTree(Node* p, Node* q) {
@@ -54,9 +59,10 @@ int main() {
 
     bool result = isSameTree(tree1, tree2);
     
-    if (result) {
+    if(result){
         cout << "true" << endl;
-    } else {
+    } 
+    else{
         cout << "false" << endl;
     }
 

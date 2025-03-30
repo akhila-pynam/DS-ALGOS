@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node {
+    
     int data;
     Node* right;
     Node* left;
@@ -11,9 +12,11 @@ struct Node {
         right = nullptr;
         left = nullptr;
     }
+
 };
 
 Node* binarySearchtree() {
+
     int value;
     cin >> value;
 
@@ -23,17 +26,21 @@ Node* binarySearchtree() {
     node->left = binarySearchtree();
     node->right = binarySearchtree();
     return node;
+
 }
 
 void preorder(Node* root) {
+
     if (root == nullptr) return;
 
     cout << root->data << " ";
     preorder(root->left);
     preorder(root->right);
+
 }
 
 void iteratorBST(Node* root) {
+
     stack<Node*> S;
     Node* current = root;
 
@@ -49,9 +56,11 @@ void iteratorBST(Node* root) {
 
         current = current->right;
     }
+
 }
 
 int main() {
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -66,4 +75,5 @@ int main() {
     cout << endl;
 
     return 0;
+
 }

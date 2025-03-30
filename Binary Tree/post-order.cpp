@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+    
 	int data;
 	Node* left;
 	Node* right;
@@ -27,6 +28,7 @@ Node* binarytree(){
 }
 
 void postorder(Node* root){
+
     if(root == nullptr) return;
 
     postorder(root->left);

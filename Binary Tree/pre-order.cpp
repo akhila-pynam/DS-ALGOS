@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node {
+
     int data;
     Node* right = nullptr;
     Node* left = nullptr;
@@ -11,6 +12,7 @@ struct Node {
         right = nullptr;
         left = nullptr;
     }
+    
 };
 
 Node* binarytree() {
@@ -26,16 +28,18 @@ Node* binarytree() {
     return node;
 }
 
-void Preorder(Node* root) {
+void Preorder(Node* root){
 
     if (root == nullptr) return;
+
     cout << root->data << " ";
     Preorder(root->left);
     Preorder(root->right);
     
 }
 
-int main() {
+int main(){
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);

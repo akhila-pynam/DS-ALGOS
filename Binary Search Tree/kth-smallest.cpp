@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
 	int data;
 	Node* left;
 	Node* right;
@@ -11,9 +12,11 @@ struct Node{
 		right = nullptr;
 		left = nullptr;
 	}
+    
 };
 
 Node* binarySearchtree(){
+
     int value;
     cin >> value;
 
@@ -23,6 +26,7 @@ Node* binarySearchtree(){
     node->left = binarySearchtree();
     node->right = binarySearchtree();
     return node;
+
 }
 
 Node* kthSmallelement(Node* root, int k, int& count) {

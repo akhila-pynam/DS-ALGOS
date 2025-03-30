@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
 	int data;
     Node* left;
     Node* right;
@@ -11,6 +12,7 @@ struct Node{
     	left = nullptr;
     	right = nullptr;
     }
+
 };
 
 Node* binarySearchtree(){
@@ -35,6 +37,7 @@ pair<int, int> result(Node* root, int val){
 	if(root == nullptr) return {};
 
 	while(root){
+
 		if(root->data == val){
 			floor = root->data;
 			ceil = root->data;
@@ -49,10 +52,12 @@ pair<int, int> result(Node* root, int val){
 			ceil = root->data;
 			root = root->left;
 		}
+
 	}
 	return {floor, ceil};
 }
 int main(){
+	
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);

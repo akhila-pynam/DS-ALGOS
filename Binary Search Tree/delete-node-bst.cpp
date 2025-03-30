@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node {
+
     int data;
     Node* left;
     Node* right;
@@ -11,9 +12,11 @@ struct Node {
         left = nullptr;
         right = nullptr;
     }
+    
 };
 
 Node* binarySearchtree() {
+
     int value;
     cin >> value;
 
@@ -23,16 +26,20 @@ Node* binarySearchtree() {
     node->left = binarySearchtree();
     node->right = binarySearchtree();
     return node;
+
 }
 
 Node* FindMin(Node* root) {
+
     while (root && root->left != nullptr) {
         root = root->left;
     }
+
     return root;
 }
 
 Node* deleteNode(Node* root, int val) {
+
     if (root == nullptr) return root;
 
     if (val < root->data) {
@@ -69,14 +76,18 @@ Node* deleteNode(Node* root, int val) {
 }
 
 void inorder(Node* root) {
+
     if (root == nullptr) return;
+
     inorder(root->left);
     cout << root->data << " ";
     inorder(root->right);
+
 }
 
 
 int main() {
+
     #ifndef ONLINE_JUDGE 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);

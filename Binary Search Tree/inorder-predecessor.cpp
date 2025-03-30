@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
 	int data;
 	Node* left;
 	Node* right;
@@ -11,6 +12,7 @@ struct Node{
 		right = nullptr;
 		left = nullptr;
 	}
+	
 };
 
 Node* binarySearchtree(){

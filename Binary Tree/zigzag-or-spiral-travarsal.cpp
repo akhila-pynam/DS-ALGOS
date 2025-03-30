@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node {
+    
     int data;
     Node* left;
     Node* right;
@@ -14,6 +15,7 @@ struct Node {
 };
 
 Node* binarytree() {
+
     int value;
     cin >> value;
 
@@ -26,6 +28,7 @@ Node* binarytree() {
 }
 
 void zigzagTraversal(Node* root) {
+
     if (root == nullptr) return;
 
     queue<Node*> q;
@@ -66,6 +69,7 @@ void zigzagTraversal(Node* root) {
 }
 
 int main() {
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);

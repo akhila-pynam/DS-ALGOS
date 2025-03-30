@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
     int data;
     Node* left;
     Node* right;
@@ -11,6 +12,7 @@ struct Node{
         left = nullptr;
         right = nullptr;
     }
+    
 };
 
 Node* binarySearchtree(){
@@ -38,6 +40,7 @@ void inorder(Node* root, vector<int>& elements){
 }
 
 bool twoSum(Node* root, int target){
+
     vector<int> elements;
     inorder(root, elements);
 
@@ -62,6 +65,7 @@ bool twoSum(Node* root, int target){
 
 }
 int main(){
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -77,4 +81,5 @@ int main(){
     else{
         cout << "false";
     }
+
 }

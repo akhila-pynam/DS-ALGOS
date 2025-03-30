@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
 	int data;
 	Node* left;
 	Node* right;
@@ -11,9 +12,11 @@ struct Node{
 		left = nullptr;
 		right = nullptr;
 	}
+
 };
 
 Node* binarySearchtree(){
+
 	int value;
 	cin >> value; 
 
@@ -23,9 +26,11 @@ Node* binarySearchtree(){
 	node->left = binarySearchtree();
 	node->right = binarySearchtree();
 	return node;
+	
 }
 
 bool checkBst(Node* root, int min, int max){
+
 	if(root == nullptr) return true;
 
 	if(root->data <= min || root->data >= max){
@@ -33,6 +38,7 @@ bool checkBst(Node* root, int min, int max){
 	}
 
 	return checkBst(root->left, min, root->data) && checkBst(root->right, root->data, max);
+
 }
 int main(){
 

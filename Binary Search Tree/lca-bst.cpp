@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+	
 	int data;
 	Node* right;
 	Node* left;
@@ -11,9 +12,11 @@ struct Node{
 		left = nullptr;
 		right = nullptr;
 	}
+
 };
 
 Node* binarySearchtree(){
+
 	int value;
 	cin >> value;
 
@@ -23,9 +26,11 @@ Node* binarySearchtree(){
 	node->left = binarySearchtree();
 	node->right = binarySearchtree();
 	return node;
+
 }
 
 Node* lcaBst(Node* root, int val1, int val2){
+
 	if(root == nullptr) return root;
 
 	if(root->data == val1 || root->data == val2){

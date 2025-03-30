@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
 	int data;
 	Node* left;
 	Node* right;
@@ -11,9 +12,11 @@ struct Node{
 		left = nullptr;
 		right = nullptr;
 	}
+	
 };
 
 Node* binarySearchtree(){
+
 	int value;
 	cin >> value;
 
@@ -23,6 +26,7 @@ Node* binarySearchtree(){
 	node->left = binarySearchtree();
 	node->right = binarySearchtree();
 	return node;
+
 }
 
 Node* insertNode(Node* root, int val){
@@ -31,6 +35,7 @@ Node* insertNode(Node* root, int val){
 	Node* current = root;
 
 	while(current){
+
 		if(current->data <= val){
 
            if(current->right != nullptr){
@@ -43,6 +48,7 @@ Node* insertNode(Node* root, int val){
            }
          
 	    }
+
 	    else{
 	    	if(current->left != nullptr){
 	    		current = current->left;
@@ -57,11 +63,13 @@ Node* insertNode(Node* root, int val){
 }
 
 void preorder(Node* root) {
+
 	if (root == nullptr) return;
 
 	cout << root->data << " ";
 	preorder(root->left);
 	preorder(root->right);
+
 }
 
 int main(){

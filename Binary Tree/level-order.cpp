@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node {
+    
     int data;
     Node* left;
     Node* right;
@@ -14,18 +15,22 @@ struct Node {
 };
 
 Node* binarytree() {
+
     int value;
     cin >> value;
 
     if (value == -1) return nullptr;
 
     Node* node = new Node(value);
+
     node->left = binarytree();
     node->right = binarytree();
     return node;
+
 }
 
 void levelorder(Node* root) {
+
     if (root == nullptr) return;
 
     queue<Node*> q;
@@ -36,6 +41,7 @@ void levelorder(Node* root) {
         vector<int> currentLevel;
 
         for (int i = 0; i < levelSize; i++) {
+            
             Node* current = q.front();
             q.pop();
             currentLevel.push_back(current->data);
@@ -58,6 +64,7 @@ void levelorder(Node* root) {
 }
 
 int main() {
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);

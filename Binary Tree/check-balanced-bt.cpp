@@ -2,6 +2,7 @@
 using namespace std;
 
 struct Node{
+
     int data;
     Node* left;
     Node* right;
@@ -11,9 +12,11 @@ struct Node{
         left = nullptr;
         right = nullptr;
     }
+
 };
 
 Node* binarytree(){
+
     int value;
     cin >> value;
 
@@ -28,6 +31,7 @@ Node* binarytree(){
 }
 
 int balancedTree(Node* root){
+
     if(root == nullptr) return 0;
 
     int left = balancedTree(root->left);
@@ -61,7 +65,8 @@ int main(){
 
     if (isBalanced(root)) {
         cout << "Balanced";
-    } else {
+    } 
+    else {
         cout << "Not Balanced";
     }
 }
