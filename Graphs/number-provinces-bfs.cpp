@@ -27,10 +27,12 @@ int numberOfprovinces(int n, vector<vector<int>>& adj, vector<int>& visited) {
    
     int Pcount = 0;
     for (int i = 0; i < n; i++) {
+        
         if (!visited[i]) {
             bfs(i, adj, visited);
             Pcount++;
         }
+        
     }
     return Pcount;
 
@@ -49,10 +51,13 @@ int main() {
     vector<vector<int>> adj(n);
    
     for (int i = 0; i < m; i++) {
+        
         int u, v;
         cin >> u >> v;
+        
         adj[u].push_back(v);
         adj[v].push_back(u);
+
     }
 
     vector<int> visited(n, 0);

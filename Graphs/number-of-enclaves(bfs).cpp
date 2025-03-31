@@ -55,6 +55,7 @@ int bfs(vector<vector<int>>& Matrix, vector<vector<int>>& visited, int n, int m)
 }
 
 int main() {
+    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
