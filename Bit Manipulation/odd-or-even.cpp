@@ -27,4 +27,6 @@ int main(){
 	else{
 		cout << "False";   // even
 	}
+
+    return 0;
 }

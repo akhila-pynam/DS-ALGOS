@@ -25,6 +25,8 @@ int main(){
 
 	bitManipulation(num, position);	
 
+    return 0;
+
 }
 
 // INPUT : 70 3

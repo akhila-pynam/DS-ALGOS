@@ -29,5 +29,6 @@ int main(){
 
   powerTwo(n);
 
+  return 0;
 
 }
