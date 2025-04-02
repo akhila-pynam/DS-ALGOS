@@ -20,3 +20,9 @@ int main(){
 		cout << -1;
 	}
 }
+
+// INPUT : 15 
+// OUTPUT : 31 
+
+// INPUT : 6 
+// OUTPUT : 7
