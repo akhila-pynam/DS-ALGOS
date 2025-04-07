@@ -56,3 +56,11 @@ int main(){
 
     return 0;
 }
+
+// INPUT :
+
+// 6
+// 1 3 6 7 9 2
+// 7
+
+// OUTPUT : 3
