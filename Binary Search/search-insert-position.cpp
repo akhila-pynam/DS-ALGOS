@@ -20,10 +20,11 @@ int searchInsert(int n, int* nums, int target){
     	}
     	else{
     		right = mid - 1;
+			ans = mid;
     	}
     }
 
-    return ans;
+    return ans == -1 ? left : ans;
 
 }
 
