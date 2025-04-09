@@ -2,62 +2,50 @@
 using namespace std;
 
 pair<int, int> firstLast(int n, int* nums, int target) {
-   
+    
     int left = 0;
     int right = n - 1;
-    pair<int, int> result = {-1, -1};
+    int first = -1;
+    int last = -1;
 
-    while (left <= right) {
+    while(left <= right){
+        int mid = (left + right)/2;
 
-        int mid = left + (right - left) / 2;
-
-        if (nums[mid] == target) {
-          
-            result.first = mid;
-            right = mid - 1;
-
-        } 
-
-        else if (nums[mid] > target) {
+        if(nums[mid] == target){
+            first = mid;
             right = mid - 1;
         } 
-
-        else {
+        else if(nums[mid] < target){
             left = mid + 1;
         }
-
+        else{
+            right = mid - 1;
+        }
     }
 
-    if (result.first == -1) return result;
+    left = 0; 
+    right = n-1;
 
-    left = result.first;
-    right = n - 1;
+    while(left <= right) {
+        int mid = (left + right)/2;
 
-    while (left <= right) {
-       
-        int mid = left + (right - left) / 2;
-
-        if (nums[mid] == target) {
-           
-            result.second = mid;
+        if(nums[mid] == target){
+            last = mid;
             left = mid + 1;
-            
-        }
-
-        else if (nums[mid] > target) {
-            right = mid - 1;
         } 
-
-        else {
+        else if(nums[mid] < target){
             left = mid + 1;
         }
-
+        else{
+            right = mid - 1;
+        }
     }
 
-    return result;
+    return {first, last};
 }
 
 int main() {
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -67,7 +55,7 @@ int main() {
     cin >> n;
 
     int nums[n];
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i<n; i++) {
         cin >> nums[i];
     }
 
@@ -76,12 +64,14 @@ int main() {
 
     pair<int, int> result = firstLast(n, nums, target);
     cout << "{" << result.first << " " << result.second << "}";
+
+    return 0;
 }
 
-// INPUT :
+// INPUT : 
 
 // 6
 // 5 7 7 8 8 10
 // 8
 
-// OUPUT : {3, 4}
+// OUTPUT : {3, 4}
