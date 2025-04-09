@@ -11,17 +11,12 @@ int upperBound(int n, int* nums, int target){
 
     	int mid = (left + right)/2;
 
-    	if(nums[mid] == target){
-    		floor = mid;
-    		right = mid + 1;
-    	}
-
     	if(nums[left] < target){
+    	   floor = nums[mid];
            left = mid + 1; 
     	}
     	else{
     		right = mid - 1;
-    		floor = mid;
     	}
 
     }
