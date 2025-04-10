@@ -2,47 +2,43 @@
 using namespace std;
 
 int findPeak(int n, int* nums){
-
-    if(n == 0) return 0;
-    if(nums[0] > nums[1]) return 0;
-    if(nums[n-1] > nums[n-2]) return n-1;
-
-    int left = 1;
-    int right = n-2;
+    
+    int left = 0;
+    int right = n - 1;
+    int ans = -1;
 
     while(left <= right){
+        
+        int mid = (left + right)/2;
 
-    	int mid = (left + right)/2;
+        if(nums[mid-1] < nums[mid] && nums[mid] > nums[mid+1]){
+            ans = mid;
+            break;
+        }
 
-    	if(nums[mid] > nums[mid-1] && nums[mid] > nums[mid+1]){
-    		return mid;
-    	}
-
-    	else if((nums[mid] > nums[mid - 1])){
-    		left = mid + 1;
-    	}
-    	else{
-    		right = mid - 1;
-    	}
+        if(nums[left] < nums[mid]){
+            left = mid + 1;
+        }
+        else{
+            right = mid - 1;
+        }
     }
-   
-   return -1;
-
+    return ans;
 }
 
 int main(){
 
-	#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-	#endif
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
 
-    int n; 
+    int n;
     cin >> n;
 
     int nums[n];
     for(int i=0; i<n; i++){
-    	cin >> nums[i];
+        cin >> nums[i];
     }
     
     int result = findPeak(n, nums);
