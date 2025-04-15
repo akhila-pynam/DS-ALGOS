@@ -20,7 +20,7 @@ int nthRootm(int n, int m){
         else if(ans > m){
             right = mid - 1;
         }
-        else if(ans < m){
+        else{
             left = mid + 1;
         }
     }
@@ -41,12 +41,3 @@ int main(){
 
     return 0;
 }
-
-// INPUT : 2 9
-// OUTPUT : 3
-
-// INPUT : 3 9
-// OUPUT : -1
-
-// INPUT : 1 14
-// OUPUT : 14

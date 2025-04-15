@@ -1,18 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int searchRotated(int n, int* nums, int target){
+bool searchRotated(int n, int* nums, int target){
     
     int left = 0;
     int right = n-1;
-    int ans = -1;
+    bool ans = false;
 
     while(left <= right){
 
     	int mid = (left + right)/2;
 
     	if(nums[mid] == target){
-    		return mid;
+    		ans = true;
+            break;
     	}
 
     	if(nums[left] <= nums[mid]){
@@ -34,7 +35,7 @@ int searchRotated(int n, int* nums, int target){
             else{
                 right = mid - 1;
             }
-            
+
         }
     }
 
@@ -60,16 +61,13 @@ int main(){
     int target;
     cin >> target;
     
-    int result = searchRotated(n, nums, target);
-    cout << result;
+    bool result = searchRotated(n, nums, target);
+    if(result){
+        cout << "true";
+    }
+    else{
+        cout << "false";
+    }
 
     return 0;
 }
-
-// INPUT :
-
-// 7
-// 4 5 6 7 0 1 2 
-// 0
-
-// OUTPUT : 4

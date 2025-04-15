@@ -55,11 +55,3 @@ int main(){
 	return 0;
 
 }
-
-// INPUT : 
-
-// 6
-// 3 4 7 8 8 10
-// 5
-
-// OUTPUT : {4 7}

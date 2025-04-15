@@ -1,30 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int searchInsert(int n, int* nums, int target){
+int SearchPosition(int n, int* nums, int insert){
     
     int left = 0;
     int right = n-1;
-    int ans = -1;
 
     while(left <= right){
+    	
+    	int mid = (left+right)/2;
 
-    	int mid = (left + right)/2;
-
-    	if(nums[mid] == target){
-    		ans = mid;
-    	}
-
-    	if(nums[mid] < target){
+    	if(nums[mid] < insert){
     		left = mid + 1;
     	}
     	else{
     		right = mid - 1;
-			ans = mid;
     	}
+
     }
 
-    return ans == -1 ? left : ans;
+    return left;
 
 }
 
@@ -38,25 +33,16 @@ int main(){
 	int n;
 	cin >> n;
 
-	int nums[n];
+    int nums[n];
 	for(int i=0; i<n; i++){
 		cin >> nums[i];
 	}
 
-	int target;
-	cin >> target;
+	int insert;
+	cin >> insert;
 
-	int result = searchInsert(n, nums, target);
+	int result = SearchPosition(n, nums, insert);
 	cout << result;
 
 	return 0;
-
 }
-
-// INPUT : 
-
-// 4 
-// 1 3 5 6 
-// 5
-
-// OUTPUT : 2

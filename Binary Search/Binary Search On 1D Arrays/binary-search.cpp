@@ -1,33 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int findPeak(int n, int* nums){
-    
-    int left = 0;
-    int right = n - 1;
+int searchTarget(int n, int* nums, int target){
+   
+    int left = 0; 
+    int right = n-1;
+
     int ans = -1;
 
     while(left <= right){
         
-        int mid = (left + right)/2;
+        int mid = (left + right) / 2;
 
-        if(nums[mid-1] < nums[mid] && nums[mid] > nums[mid+1]){
+        if(nums[mid] == target){
+           
             ans = mid;
-            break;
+            right = mid-1;
+
         }
 
-        if(nums[left] < nums[mid]){
-            left = mid + 1;
+        else if(nums[mid] < target) {
+            left = mid+1;
         }
-        else{
-            right = mid - 1;
+
+        else {
+            right = mid-1;
         }
+
     }
+    
     return ans;
+
 }
 
 int main(){
-
+    
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -40,10 +47,12 @@ int main(){
     for(int i=0; i<n; i++){
         cin >> nums[i];
     }
-    
-    int result = findPeak(n, nums);
+
+    int target;
+    cin >> target; 
+
+    int result = searchTarget(n, nums, target);
     cout << result;
 
     return 0;
-
 }

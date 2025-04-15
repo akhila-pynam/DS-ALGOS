@@ -61,9 +61,3 @@ int main(){
 
 	return 0;
 }
-
-// INPUT : 49
-// OUTPUT : 7
-
-// INPUT : 144
-// OUTPUT : 12
