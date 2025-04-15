@@ -40,6 +40,9 @@ int rowMax1(int row, int column, int matrix[3][3]){
     }
 
     return rowIndex;
+    // If Uh Wanna Return The index + max Count
+    //  return {rowIndex, maxCount};
+
 }
 
 int main() {
@@ -72,9 +75,9 @@ int main() {
         }
     }
     cout << endl;
-    
+
     // If Uh Wanna Return Index
-    cout << result;
+    cout << result;    
 
     return 0;
 }
