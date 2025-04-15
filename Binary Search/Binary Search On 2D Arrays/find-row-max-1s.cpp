@@ -64,12 +64,17 @@ int main() {
     }
 
     int result = rowMax1(row, column, matrix);
-    
+
+    // If Uh Wanna Return Row Elements 
     if(result){
     	for (int i=0; i<row; i++) {
             cout << matrix[result][i] << " ";
         }
     }
+    cout << endl;
+    
+    // If Uh Wanna Return Index
+    cout << result;
 
     return 0;
 }
