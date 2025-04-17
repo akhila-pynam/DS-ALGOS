@@ -42,18 +42,18 @@ int main(){
 
 }
 
-INPUT :
+// INPUT :
 
-6
-1 2 3 4 5 6
-10
+// 6
+// 1 2 3 4 5 6
+// 10
 
-OUTPUT : 6
+// OUTPUT : 6
 
-INPUT :
+// INPUT :
 
-7
--1 2 3 3 4 5 -1
-15
+// 7
+// -1 2 3 3 4 5 -1
+// 15
 
-OUTPUT : 14
+// OUTPUT : 14
