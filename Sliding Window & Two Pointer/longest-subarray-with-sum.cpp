@@ -9,12 +9,12 @@ int longestSubarray(int n, int* nums, int k){
     	int sum = 0;
     	for(int j=i; j<n; j++){
     		sum = sum + nums[j];
-    		maxSum = max(maxSum, sum);
+            if(sum <= k){
+              maxSum = max(maxSum, j-i+1);
+            }
     	}
-    	if(sum < k){
-    	   return sum;
-        }
     }
+    return maxSum;
 }
 
 int main(){
@@ -48,7 +48,7 @@ int main(){
 // 1 2 3 4 5 6
 // 10
 
-// OUTPUT : 6
+// OUTPUT : 4
 
 // INPUT :
 
@@ -56,4 +56,4 @@ int main(){
 // -1 2 3 3 4 5 -1
 // 15
 
-// OUTPUT : 14
+// OUTPUT : 7
