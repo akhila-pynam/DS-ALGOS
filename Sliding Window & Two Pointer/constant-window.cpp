@@ -2,7 +2,9 @@
 using namespace std;
 
 int constantWindow(int n, int* nums, int k){
-    
+ 
+// Brutal Solution
+
     // int left = 0;
     // int right = k-1;
     // int maxLen = 0;
@@ -23,6 +25,8 @@ int constantWindow(int n, int* nums, int k){
     // return maxLen;
 
 
+// Optimal Solution
+
     int left = 0;
     int right = 0;
     int sum = 0;
@@ -39,9 +43,10 @@ int constantWindow(int n, int* nums, int k){
             left++;
         } 
         else if(length > k) {
-            sum -= nums[left];
+            sum = sum - nums[left];
             left++;
         }
+
         right++;
     }
 

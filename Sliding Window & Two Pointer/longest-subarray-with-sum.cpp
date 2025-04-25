@@ -40,7 +40,7 @@ int longestSubarray(int n, int* nums, int k){
    //      for(int i=0; i<k; i++){
    //         for(int j=i; j<k; j++){ 
                
-   //              sum = sum + nums[i];
+   //              sum = sum + nums[j];
 
    //              while(sum > k){
    //                sum = sum - nums[left];
@@ -59,31 +59,27 @@ int longestSubarray(int n, int* nums, int k){
    
    // TC -> O(N)
    // SC -> O(1)
-    
+
    int left = 0;
-   int right = k-1;
+   int right = 0;
    int sum = 0;
-   int maxLen = 0;
+   int maxSum = 0;
 
    while(right < n){
         
-        for(int i=0; i<k; i++){
-           for(int j=i; j<k; j++){ 
-               
-                sum = sum + nums[i];
+        sum = sum + nums[right];
 
-                if(sum > k){
-                  sum = sum - nums[left];
-                  left++;
-                }
-                if(sum < k){
-                    maxLen = max(maxLen, j-i+1);
-                    right++;
-                }
-            }
-        }
+        if(sum > k){
+            sum = sum - nums[left];
+            left++;
+        }   
+        
+        if (sum <= k) {
+            maxSum = max(maxSum, sum);
+        } 
+        right++;
     }
-
+    return maxSum;
 }
 
 int main(){
@@ -110,6 +106,8 @@ int main(){
     return 0;
 
 }
+
+
 
 // INPUT :
 
