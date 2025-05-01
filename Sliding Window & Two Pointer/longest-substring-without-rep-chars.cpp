@@ -1,15 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <bits/stdc++.h>
-using namespace std;
-
 int longSubstring(int n, string& s){
     
     int left = 0;
     int right = 0;
     int maxLen = 0;
-    int hash[26] = {0};
+    map<char, int> hash;
+    // unordered_map<char, int> hash;
+    // vector<int> hash(26,0);
 
     while(right < n){
         
