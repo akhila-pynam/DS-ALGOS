@@ -3,6 +3,29 @@ using namespace std;
 
 int longSubstring(int n, string& s){
     
+// Brute Force 
+
+	// map<int, int> hash;
+	// int maxLen = 0;
+
+	// for(int i=0; i<n; i++){
+	// 	hash.clear();
+	// 	for(int j=i; j<n; j++){
+    //         hash[s[j] - 'a']++;
+
+    //         if(hash[s[j] - 'a'] > 1){
+    //         	break;
+    //         }
+
+    //         maxLen = max(maxLen, (j - i + 1));
+   	// 	}
+	// 	return maxLen;
+	// }
+
+
+
+// Optimal Solution 
+
     int left = 0;
     int right = 0;
     int maxLen = 0;
