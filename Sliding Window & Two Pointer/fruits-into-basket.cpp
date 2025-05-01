@@ -1,70 +1,54 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fruitsBaskets(int n, int* fruits){
-   
-// Naive Solution 
+int fruitsBaskets(int n, int* nums){
 
-    // map<int, int> f;
+	// map<int, int> f;
     // int maxLen = 0;
 
-
     // for(int i=0; i<n; i++){
+    //   for(int j=i; j<n; j++){
+          
+	//         f[nums[j]]++;
 
-    // 	for(int j=i; j<n; j++){
+	//         if(f.size() > 2){
+	//            break;
+	//         }
 
-    // 		f[fruits[j]]++;
+	//         if(f.size() <= 2){
+	//            int len = j-i+1;
+	//            maxLen = max(maxLen, len);
+	//         }
 
-	//     	if(f.size() > 2){
-    //             break;
-	//     	}
-
-	//     	if(f.size() <= 2){
-	//     		int length = j-i+1;
-	//     		maxLen = max(maxLen, length);
-	//     	}
-
-	//     }
-	//     f.clear();
+    //    }
+    //    f.clear();
     // }
     // return maxLen;
 
 
-// Optimal Solution
+// Optimal Solution 
 
-    int left = 0;
-    int right = 0;
-    int maxLen = 0;
-    map<int, int> f;
+	int left = 0;
+	int right = 0;
+	int maxLen = 0;
+	map<int, int> f;
 
-    while(right < n){
+	while(right < n){
       
-      f[fruits[right]]++;
+        f[nums[right]]++;
 
-      if(f.size() > 2){
-        
-        while(f.size() > 2){
-        	
-        	f[fruits[left]]--;
-        	
-        	if(f[fruits[left]] == 0){
-                f.erase(fruits[left]);
-            }
+        if(f.size() > 2){
+        	f[nums[left]]--;
 
+        	if(f[nums[left]] == 0){
+               f.erase(nums[left]);
+        	}
         	left++;
         }
-
-      }
-
-      if(f.size() <= 2){
-      	int length = right - left + 1;
-      	maxLen = max(maxLen, length);
-      }
-      
-      right++;
-
-    }
-    return maxLen;
+        maxLen = max(maxLen, (right - left + 1));
+        right++;
+	}
+	return maxLen;
 }
 
 int main(){
@@ -72,23 +56,22 @@ int main(){
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+	#endif	
 
 	int n;
 	cin >> n;
 
-	int fruits[n];
+	int nums[n];
 	for(int i=0; i<n; i++){
-		cin >> fruits[i];
+		cin >> nums[i];
 	}
 
-	int result = fruitsBaskets(n, fruits);
+	int result = fruitsBaskets(n, nums);
 	cout << result;
 
 	return 0;
 
 }
-
 // INPUT :
 
 // 5 
