@@ -1,50 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int longestSubstring(int n, string& s){
+#include <bits/stdc++.h>
+using namespace std;
+
+int longSubstring(int n, string& s){
     
     int left = 0;
-    int right = n-1;
+    int right = 0;
     int maxLen = 0;
-    int length = 0;
-   
-     for(int i=left; i<=right; i++){
-       
-        int hash[256] = {0};
-       
-        for(int j=i; j<=right; j++){
-          
-          if(hash[s[j]] == 1){
-            break; 
-          } 
+    int hash[26] = {0};
 
-          hash[s[j]] = 1;
-          length = j-i+1;
-          maxLen = max(maxLen, length);   
-          
-        }             
-         
-      }
+    while(right < n){
+        
+        hash[s[right] - 'a']++;
+        
+        while(left <= right && hash[s[right] - 'a'] > 1){
+        	hash[s[left] - 'a']--;
+        	left++;
+        }
+
+        maxLen = max(maxLen, (right - left + 1));
+        right++;
+
+    }
     return maxLen;
 }
 
 int main(){
-    
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
 
-    int n;
-    cin >> n;
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	#endif
 
-    string s;
-    cin >> s;
+	int n;
+	cin >> n;
 
-    int result = longestSubstring(n, s);
-    cout << result;
+	string s;
+	cin >> s;
 
-    return 0;
+	int result = longSubstring(n, s);
+	cout << result;
+
+	return 0;
+
 }
 
 // INPUT :
