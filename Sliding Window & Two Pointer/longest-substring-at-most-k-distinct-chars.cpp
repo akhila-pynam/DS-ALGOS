@@ -1,40 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int longSubstring(int n, string& s, int k) {
+int atMost(int n, string& s, int k) {
   
 // Brutal Solution 
 
 	// TC -> O(n^2)
 	// SC -> O(1)
 
-    // int length = 0;
-    // int maxLen = 0;
+ //    int maxLen = 0;
+     
+ //    for(int i=0; i<n; i++){
 
-    // for(int i = 0; i < n; i++){
+ //        int dstCnt = 0;
+ //        int hash[26] = {0};
+        
+ //       for(int j=i; j<n; j++){
 
-    //     int hash[26] = {0};
-    //     int distCnt = 0;
+ //           if(hash[s[j] - 'a'] == 0) {
+ //               dstCnt++;
+ //           }
+           
+ //           hash[s[j] - 'a'] = 1;
 
-    //     for(int j = i; j < n; j++){
+ //           if(dstCnt > k){
+ //                break;
+ //           }
 
-    //         if (hash[s[j] - 'a'] == 0) {
-    //             distCnt++;
-    //         }
-
-    //         if(distCnt > k){
-    //             break;
-    //         }
-
-    //         hash[s[j] - 'a']++;
-
-    //         length = j - i + 1;
-    //         maxLen = max(maxLen, length);
-    //     }
-    // }
-
-    // return maxLen;
-
+ //           maxLen = max(maxLen, (j-i+1));
+ //       }
+ //    }
+ //    return maxLen;
 
 // Optimal Solution
 
@@ -45,12 +41,11 @@ int longSubstring(int n, string& s, int k) {
 	int right = 0;
 	int distCnt = 0;
 	int maxLen = 0;
+	int hash[26] = {0};
 
 	while(right < n){
 
-		int hash[26] = {0};
-
-		if(hash[s[right]] == 0){
+		if(hash[s[right] - 'a'] == 0){
 			distCnt++;
 		}
 
@@ -60,7 +55,7 @@ int longSubstring(int n, string& s, int k) {
 
 			hash[s[left] - 'a']--;
 
-            if (hash[s[left] - 'a'] == 0){
+            if (hash[s[left] - 'a'] == 0) {
                 distCnt--;
             }
 
@@ -77,7 +72,6 @@ int longSubstring(int n, string& s, int k) {
 }
 
 int main() {
-
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -92,11 +86,12 @@ int main() {
     int k;
     cin >> k;
 
-    int result = longSubstring(n, s, k);
+    int result = atMost(n, s, k);
     cout << result;
 
     return 0;
 }
+
 
 // INPUT :
 
