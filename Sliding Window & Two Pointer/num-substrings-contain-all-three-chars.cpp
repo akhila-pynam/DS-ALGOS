@@ -16,9 +16,9 @@ int numSubstrings(int n, string& s){
 
 	// 		for(int j=i; j<n; j++){
 	          
-	//            hash[s[j] - 'a'] = 1;
+	//            hash[s[j] - 'a']++;
 
-	//            if(hash[0] + hash[1] + hash[2] == 3){
+	//            if(hash[0] > 0 && hash[1] > 0 && hash[2] > 0){
 	//            	  cnt++;
 	//            }
 	// 		}
@@ -71,7 +71,6 @@ int main(){
     return 0;
 
 }
-
 // INPUT :
  
 // 5
