@@ -22,3 +22,8 @@ int main(){
     
     return 0;
 }
+
+// INPUT : 4
+
+// OUTPUT : 0x61ff08 ( Undefined Memory Address Not a Specific - The Memory Asdress Can Change Each Time The Program Runs. )
+//          4
