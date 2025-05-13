@@ -60,3 +60,11 @@ int main(){
 
     return 0;
 }
+
+// INPUT : 
+
+// 6
+// 6 5 2 7 1 7 
+
+// OUTPUT : 1 5 2 7 6 7 
+
