@@ -69,6 +69,7 @@ int main(){
 
     deleteHead();
 	display();
+    
 	return 0;
 
 }
