@@ -25,16 +25,24 @@ void insert(int value){
 			temp = temp->right;
 		}
 		temp->right = new Node(value);
+
 	}
 }
 
 void deleteTail(){
- 
-    Node* temp = head;
-    if(head->right == nullptr){
-    	delete(temp);
+    
+    if(head == nullptr || head->right == nullptr){
+    	delete(head);
     }
 
+    Node* temp = head;
+
+    while(temp->right->right != nullptr){
+    	temp = temp->right;
+    }
+    delete(temp->right);
+    temp->right = nullptr;
+    
 }
 
 void display(){
@@ -44,7 +52,7 @@ void display(){
 		cout << temp->data << " ";
 		temp = temp->right;;
 	}
-
+	cout << temp->data << " ";
 }
 
 int main(){
