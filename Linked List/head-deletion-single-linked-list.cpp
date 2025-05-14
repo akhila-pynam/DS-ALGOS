@@ -31,7 +31,7 @@ void insert(int value){
 
 }
 
-void deletion(){
+void deleteHead(){
 
 	Node* temp = head;
 	head = head->right;
@@ -67,7 +67,7 @@ int main(){
 		insert(value);
 	}
 
-    deletion();
+    deleteHead();
 	display();
 	return 0;
 
