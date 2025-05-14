@@ -21,7 +21,7 @@ void insert(int value){
     else{
 
         Node* temp = head;
-        while(temp->right != NULL){
+        while(temp->right != nullptr){
             temp = temp->right;
         }
         temp->right = new Node(value); 
@@ -33,7 +33,7 @@ void insert(int value){
 void display(){
 
     Node* temp = head;
-    while(temp->right != NULL){
+    while(temp->right != nullptr){
         cout << temp->data << " ";
         temp = temp->right;
     }

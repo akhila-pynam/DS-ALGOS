@@ -14,10 +14,10 @@ struct Node{
 	}
 };
 
-Node* head = nullptr;
+Node* head = NULL;
 void insert(int value){
      
-    if(head == nullptr){
+    if(head == NULL){
        head = new Node(value);
     }
     else{
@@ -69,11 +69,9 @@ int main(){
 
     deleteHead();
 	display();
-    
 	return 0;
 
 }
-
 // INPUT : 
 
 // 7
