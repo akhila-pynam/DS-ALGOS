@@ -1,6 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// TC -> O(n^2)
+// SC -> O(n)
+
+// How : 
+
+// insert : O(n^2) ( Why : Eachh time We Are Iterating The List Again And Again Untill While Loops Fails )
+// deleteHead : O(n) ( Why : We May Traverse Whole List To Find The Node To Be Deleted )
+// dispaly : O(n)
+// Total TC -> O(n^2)
+
+// For Now the Tc & Sc Is O(n^2) Later I will Optimize It In O(n) Soon In Future !
+
 struct Node{
 
 	int data;
