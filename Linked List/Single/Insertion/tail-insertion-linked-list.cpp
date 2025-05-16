@@ -29,27 +29,28 @@ struct Node{
 Node* head = NULL;
 void insert(int value){
      
-    if(head == nullptr){
-       head = new Node(value);
-    }
-    else{
+   if(head == nullptr){
+      head = new Node(value);
+   }
+
+   else{
        
-       Node* temp = head;
-       while(temp->right != nullptr){
-       	   temp = temp->right;
-       }
-       temp->right = new Node(value);
-    }
+	   Node* temp = head;
+	   while(temp->right != nullptr){
+	     	temp = temp->right;
+	   }
+	   temp->right = new Node(value);
+   }
 
 }
 
 void insertTail(int nodeVal){
      
-    Node* temp = head;
-    while(temp->right != nullptr){
-    	temp = temp->right;
-    }
-    temp->right = new Node(nodeVal);
+   Node* temp = head;
+   while(temp->right != nullptr){
+      temp = temp->right;
+   }
+   temp->right = new Node(nodeVal);
 }
 
 void display(){
