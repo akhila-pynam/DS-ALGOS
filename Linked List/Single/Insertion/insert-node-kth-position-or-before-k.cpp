@@ -30,21 +30,21 @@ void insert(int value){
 
 void kthPosition(int k, int nodeVal){
 
-	if (k == 0) {
-		Node* temp = new Node(nodeVal);
-		temp->right = head;
-		head = temp;
+	if (k == 1) {
+		Node* newNode = new Node(nodeVal);
+		newNode->right = head;
+		head = newNode;
 		return;
 	}
 
 	Node* temp = head;
-	int count = 0;
+	int count = 1;
 
 	if (temp == nullptr) {
 		return;
 	}
 
-	while (temp->right != nullptr && count < k-2) {
+	while (temp != nullptr && count < k-1) {
 		temp = temp->right;
 		count++;
 	}
