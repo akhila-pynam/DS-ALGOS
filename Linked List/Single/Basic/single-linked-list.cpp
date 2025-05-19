@@ -56,8 +56,8 @@ int main(){
         cin >> value;
 
         insert(value);
-
     }
+    
     display();
     return 0;
 

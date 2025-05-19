@@ -91,7 +91,6 @@ int main(){
 		cin >> value;
 
 		insert(value);
-
 	}
 
 	int k;

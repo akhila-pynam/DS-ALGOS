@@ -72,7 +72,6 @@ int main(){
 		cin >> value;
 
 		insert(value);
-
 	}
 
     deleteTail();

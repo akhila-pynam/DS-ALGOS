@@ -67,7 +67,6 @@ int main(){
 		cin >> value;
 
 		insert(value);
-
 	}
  
     deleteHead();
