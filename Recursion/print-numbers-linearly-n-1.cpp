@@ -1,9 +1,38 @@
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int n = 10;
+// int cnt = 0;
+// void printLinearly(){
+ 
+//     if(cnt == 11) return;
+
+//     cout << cnt << endl;
+//     cnt++;
+    
+//     printLinearly();
+
+// }
+
+// int main(){
+
+// 	#ifndef ONLINE_JUDGE
+// 	freopen("input.txt", "r", stdin);
+// 	freopen("output.txt", "w", stdout);
+// 	#endif	
+
+// 	printLinearly();
+
+// 	return 0;
+
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 
 void printNums(int i, int n){
 
-	if(i >= n) return;
+	if(i == n) return;
 
 	i++;
 	printNums(i, n);

@@ -32,7 +32,7 @@ using namespace std;
 
 void printNums(int i, int n){
 
-	if(i > n) return;
+	if(i == n) return;
   
 	cout << i << endl;
 	i++;
@@ -50,7 +50,7 @@ int main(){
     int n;
     cin >> n;
 
-    int i=1;
+    int i = 0;
 
 	printNums(i, n);
 
