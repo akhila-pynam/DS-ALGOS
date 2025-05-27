@@ -21,3 +21,7 @@ int main(){
     return 0;
 
 }
+
+
+// OUTPUT : 1 1 1 1 1 1 1 1 1 1 1 1 1 ... Uptill Infinite 
+// In Online Compiler We Get Stack Overflow Or Sengmantation Fault 
