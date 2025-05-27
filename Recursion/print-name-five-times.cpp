@@ -1,15 +1,54 @@
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int name = 0;
+// void printName(){
+
+// 	if(name == 5) return;
+  
+// 	cout << "Akhila Pynam" << endl;
+// 	name++;
+
+//     printName();
+
+// }
+
+// void printName(int i, int n){
+
+// 	if(i > 5) return;
+  
+// 	cout << "Akhila Pynam" << endl;
+// 	i++;
+
+//     printName(i, n);
+
+// }
+
+// int main(){
+
+// 	#ifndef ONLINE_JUDGE
+// 	freopen("input.txt", "r", stdin);
+// 	freopen("output.txt", "w", stdout);
+// 	#endif	
+
+//     int 
+// 	printName();
+
+// 	return 0;
+
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int name = 0;
-void printName(){
+void printName(int i, int n){
 
-	if(name == 5) return;
+	if(i > 5) return;
   
 	cout << "Akhila Pynam" << endl;
-	name++;
+	i++;
 
-    printName();
+    printName(i, n);
 
 }
 int main(){
@@ -18,12 +57,18 @@ int main(){
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 	#endif	
+    
+    int n;
+    cin >> n;
 
-	printName();
+    int i=1;
+
+	printName(i, n);
 
 	return 0;
 
 }
+
 
 // OUTPUT :
 
