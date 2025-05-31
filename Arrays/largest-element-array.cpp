@@ -21,7 +21,10 @@ using namespace std;
 
 
 // Another Solution I Came Up With By Usinng Priority Queue
-// ( But Brute For Is Better Than this Solution )
+// ( But Brute For Is Better Than this Solution, My Solution Won't Work 
+// When We Are Finding 2nd Large Element When 2 Same Element Exists )
+
+// EX : Input: nums = [8, 8, 7, 6, 5]
 
 // TC : O(n*log n)
 // SC : O(1)
@@ -36,6 +39,8 @@ int largestElement(int arr[], int n){
     }
 
     if(pq.size() != 0){
+    	pq.top();
+    	pq.pop();
     	largest = pq.top();
     }
 
