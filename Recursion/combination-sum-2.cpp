@@ -1,28 +1,54 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> dataStore;
-set<vector<int>> ans;
+// vector<int> dataStore;
+// set<vector<int>> ans;
 
-void combinations(vector<int>& arr, int target, int n, int ind) {
+// void combinations(vector<int>& arr, int target, int n, int ind) {
    
-    if(ind == n){
-        if (target == 0) {
-            ans.insert(dataStore);
-        }
-        return;
-    }    
+//     if(ind == n){
+//         if (target == 0) {
+//             ans.insert(dataStore);
+//         }
+//         return;
+//     }    
     
+//     if (arr[ind] <= target) {
+//         dataStore.push_back(arr[ind]);
+//         combinations(arr, target - arr[ind], n, ind + 1);
+//         dataStore.pop_back();
+//     }
 
-  
-    if (arr[ind] <= target) {
-        dataStore.push_back(arr[ind]);
-        combinations(arr, target - arr[ind], n, ind + 1);
-        dataStore.pop_back();
+//     combinations(arr, target, n, ind + 1);
+
+// }
+
+
+// OPTIMAL SOLUTION :
+
+vector<int> dataStore;
+vector<vector<int>> ans;
+
+void combinations(vector<int>& arr, int target, int n, int ind){
+     
+    if(target == 0){
+        ans.push_back(dataStore);
+        return;
     }
 
-    combinations(arr, target, n, ind + 1);
-    
+
+    for(int i=ind; i<n; i++){
+
+        if(i > ind && arr[i] == arr[i-1]) continue;
+        if(arr[ind] > target) break;
+
+        dataStore.push_back(arr[i]);
+        combinations(arr, target - arr[i], n, i+1);
+        dataStore.pop_back();
+
+    }
+ 
+
 }
 
 int main() {
