@@ -26,7 +26,7 @@ using namespace std;
 // }
 
 
-// OPTIMAL SOLUTION : ( Hard For Me So I Choose Above & Down Solution Not Optimal )
+// OPTIMAL SOLUTION : ( Hard For Me So I Prefer Above & Down Solution Not Optimal )
 
 // vector<int> dataStore;
 // vector<vector<int>> ans;
