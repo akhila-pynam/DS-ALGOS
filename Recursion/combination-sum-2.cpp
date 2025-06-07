@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// BRUTE FORCE SOLUTION
+
 // vector<int> dataStore;
 // set<vector<int>> ans;
 
@@ -24,32 +26,62 @@ using namespace std;
 // }
 
 
-// OPTIMAL SOLUTION :
+// OPTIMAL SOLUTION : ( Hard For Me So I Choose Above & Down Solution Not Optimal )
+
+// vector<int> dataStore;
+// vector<vector<int>> ans;
+
+// void combinations(vector<int>& arr, int target, int n, int ind){
+     
+//     if(target == 0){
+//         ans.push_back(dataStore);
+//         return;
+//     }
+
+
+//     for(int i=ind; i<n; i++){
+
+//         if(i > ind && arr[i] == arr[i-1]) continue;
+//         if(arr[ind] > target) break;
+
+//         dataStore.push_back(arr[i]);
+//         combinations(arr, target - arr[i], n, i+1);
+//         dataStore.pop_back();
+
+//     }
+ 
+
+// }
+
+
+// BETTER SOLUTION
 
 vector<int> dataStore;
 vector<vector<int>> ans;
 
 void combinations(vector<int>& arr, int target, int n, int ind){
-     
-    if(target == 0){
-        ans.push_back(dataStore);
+   
+    if(ind == n){
+        if (target == 0) {
+            ans.push_back(dataStore);
+        }
         return;
     }
 
-
-    for(int i=ind; i<n; i++){
-
-        if(i > ind && arr[i] == arr[i-1]) continue;
-        if(arr[ind] > target) break;
-
-        dataStore.push_back(arr[i]);
-        combinations(arr, target - arr[i], n, i+1);
+    if(arr[ind] <= target){
+        dataStore.push_back(arr[ind]);
+        combinations(arr, target - arr[ind], n, ind+1);
         dataStore.pop_back();
-
     }
- 
+    
+    while(ind + 1 < n && arr[ind] == arr[ind + 1]){
+        ind++;
+    }  
+
+    combinations(arr, target, n, ind+1); 
 
 }
+
 
 int main() {
 
