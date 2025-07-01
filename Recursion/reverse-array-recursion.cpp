@@ -1,31 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void swap(int& lft, int& ryt){
-
-    int temp = lft;
-    lft = ryt;
-    ryt = temp;
+void swap(int &left, int &right){
+    
+    int temp = left;
+    left = right;
+    right = temp;
 
 }
 
-// void reverse(int arr[], int lft, int ryt){
-    
-//     if(lft >= ryt) return;
-
-//     swap(arr[lft], arr[ryt]);
-
-//     reverse(arr, lft+1, ryt-1);
-
-// }
-
-void reverse(int arr[], int i, int n){
-
-	if(i >= (n/2)) return;
-
-	swap(arr[i], arr[n-i-1]);
-
-	reverse(arr, i+1, n);
+void func(int left, int right, int array[]){
+   
+    if(left >= right) return;
+    swap(array[left], array[right]);
+    func(left+1, right-1, array);
 
 }
 
@@ -36,21 +24,24 @@ int main(){
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	int n;
-	cin >> n;
+    int n;
+    cin >> n;
 
-    int arr[n];
+	int left = 0;
+	int right = n-1;
+
+	int array[n];
 	for(int i=0; i<n; i++){
-		cin >> arr[i];
+		cin >> array[i];
 	}
 
-	reverse(arr, 0, n);
+	func(left, right, array);
 
-	for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
+    for(int i=0; i<n; i++){
+    	cout << array[i] << " ";
     }
 
-	return 0;
+	return 0; 	
 
 }
 
