@@ -27,7 +27,6 @@
 // }
 
 
-
 // Back - Tracking Method
 
 #include <bits/stdc++.h>
@@ -60,6 +59,7 @@ int main(){
 	return 0;
 
 }
+
 
 // INPUT : 7
 // OUPTUT : 7 6 5 4 3 2 1 
