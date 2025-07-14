@@ -62,3 +62,11 @@ int main(){
 // a#b%*
 
 // OUTPUT : ba
+
+// INPUT :
+
+// 4
+// ab#c
+
+// OUTPUT : 
+
