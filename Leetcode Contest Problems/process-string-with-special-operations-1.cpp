@@ -1,24 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string result;
+string output;
 
 void processString(int n, string s){
     
     for(int i=0; i<n; i++){
 
     	if(s[i] != '*' && s[i] != '#' && s[i] != '%' && s[i] != ' ') {
-            result.push_back(s[i]);
+            output.push_back(s[i]);
         }
 
-    	if(s[i] == '*' && result != "" && s[i] != ' '){
-            result.pop_back(); 
+    	if(s[i] == '*' && output != "" && s[i] != ' '){
+            output.pop_back(); 
         }
-        else if(s[i] == '#' && result != "" && s[i] != ' '){
-            result = result + result;
+        else if(s[i] == '#' && output != "" && s[i] != ' '){
+            output = output + output;
         }
-        else if(s[i] == '%' && result != "" && s[i] != ' '){
-            reverse(result.begin(), result.end());
+        else if(s[i] == '%' && output != "" && s[i] != ' '){
+            reverse(output.begin(), output.end());
         }         
 
     }
@@ -40,7 +40,7 @@ int main(){
 
     processString(n, s);
 
-    for(auto it : result){
+    for(auto it : output){
     	cout << it;
     }
 
