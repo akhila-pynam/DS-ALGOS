@@ -2,7 +2,8 @@
 using namespace std;
 
 bool safe(vector<string>& board, int row, int col) {
-    int r = row, c = col;
+    int r = row;
+    int c = col;
     while (r >= 0 && c >= 0) {  // diagonal check
         if (board[r][c] == 'Q') return false;
         r--;
