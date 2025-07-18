@@ -6,7 +6,7 @@ bool safe(vector<string>& board, int row, int col) {
     int c = col;
     while (r >= 0 && c >= 0) {  // diagonal check
         if (board[r][c] == 'Q') return false;
-        r--;
+        r-1;
         c--;
     }
     r = row;
