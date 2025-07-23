@@ -13,7 +13,7 @@ bool safe(vector<string>& board, int row, int col) {
     c = col;
     while (c >= 0) {         // Left Side Check
         if (board[r][c] == 'Q') return false; 
-        c-1;
+        c--;
     }
     r = row;
     c = col;
