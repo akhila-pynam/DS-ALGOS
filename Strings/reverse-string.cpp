@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void reverseString(int n, string s, vector<string>& output) {
+void reverseString(int n, string s, vector<string>& output){
     
     for (int i = 0; i < n; i++) {
         for (int j = i; j < n; j++) {
