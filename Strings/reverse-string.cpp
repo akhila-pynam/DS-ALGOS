@@ -7,6 +7,7 @@ void reverseString(int n, string s, vector<string>& output){
         for (int j = i; j < n; j++) {
             while (j < n) {
                 while (j < n && s[j] == ' ') j++;
+                
                 if (j >= n) break;
 
                 j = i;
@@ -14,6 +15,7 @@ void reverseString(int n, string s, vector<string>& output){
 
                 j = i - 1;
                 output.push_back(string(1, s[j]));
+                
             }
         }
     }
