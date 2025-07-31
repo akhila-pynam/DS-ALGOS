@@ -12,9 +12,9 @@ bool isomorphic(int n, int m, string s, string t, vector<char>& visited, vector<
 
     	else{
            
-           if(visited[s[i]] != t[i] && reverse[t[i]] != s[i]){
-           	  return !output;
-           }
+            if(visited[s[i]] != t[i] && reverse[t[i]] != s[i]){
+           	   return !output;
+            }
 
     	}
         
