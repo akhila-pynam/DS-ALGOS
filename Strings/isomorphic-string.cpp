@@ -1,18 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isomorphic(int n, int m, string s, string t, vector<char>& visited, bool output){
+bool isomorphic(int n, int m, string s, string t, vector<char>& visited, vector<char>& reverse, bool output){
 
     for(int i=0; i<min(n, m); i++){
     	
-    	if(!visited[s[i]]){
+    	if(!visited[s[i]] && !reverse[t[i]]){
     		visited[s[i]] = t[i];
+    		reverse[t[i]] = s[i];
     	}
 
     	else{
            
-           if(visited[s[i]] != t[i]){
-           	return !output;
+           if(visited[s[i]] != t[i] && reverse[t[i]] != s[i]){
+           	  return !output;
            }
 
     	}
@@ -39,8 +40,9 @@ int main(){
 	bool output = true;
 
 	vector<char> visited(256);
+	vector<char> reverse(256);
 
-	output = isomorphic(n, m, s, t, visited, output);
+	output = isomorphic(n, m, s, t, visited, reverse, output);
 
 	cout << output;
 
