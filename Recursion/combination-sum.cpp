@@ -44,10 +44,12 @@ int main(){
     combinations(arr, target, n, 0);
 
     for (auto& it : ans) {
+      
         for (int num : it) {
             cout << num << " ";
         }
         cout << endl;
+        
     }
 
 
