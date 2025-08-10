@@ -3,7 +3,6 @@ using namespace std;
 
 pair<int, int> ceilThefloor(int n, int* nums, int target){
     
-   
     int left = 0;
 	int right = n-1;
 	int floor = -1;
