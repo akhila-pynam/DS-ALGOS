@@ -24,14 +24,27 @@ using namespace std;
 
 // Recursion Method 
 
+// int fibinocci(int n){
+
+//     if(n <= 1) return n;
+
+//     return fibinocci(n-1) + fibinocci(n-2);
+
+// }
+
+
+// Another Method 
+
 int fibinocci(int n){
 
-    if(n <= 1) return n;
+	if(n <= 1) return n;
 
-    return fibinocci(n-1) + fibinocci(n-2);
+	int left = fibinocci(n-1);
+	int right = fibinocci(n-2);
+
+	return left+right;
 
 }
-
 
 int main(){
 
@@ -43,7 +56,8 @@ int main(){
 	int n;
 	cin >> n;
 
-    fibinocci(n);
+    int output = fibinocci(n);
+	cout << output;
 
 	return 0;
 
