@@ -60,5 +60,5 @@ int main(){
 // INPUT : 
 // 2 1 3 5 4 
 
-// OUTPUT : 2\
+// OUTPUT : 2
 
