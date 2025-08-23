@@ -6,6 +6,8 @@ int helper(int n, vector<int>& heights, vector<int>& dp, int ind){
     
     if(ind == 0) return 0;
 
+    if(dp[ind] != -1) return dp[ind];
+
     int singleJump = helper(n, heights, dp, ind-1) + abs(heights[ind] - heights[ind-1]);
 
     int doubleJump = INT_MAX;
@@ -48,18 +50,20 @@ int main(){
 
 	return 0;
 
-	
 }
 
 
 // INPUT : 
+
 // 5
 // 7 5 1 2 6 
 
-// OUTPUT : 9
+// OUTPUT : 15
 
-// INPUT : 
+
+// INPUT :
+
+// 5
 // 2 1 3 5 4 
 
 // OUTPUT : 2
-
