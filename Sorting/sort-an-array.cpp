@@ -85,8 +85,9 @@ int main(){
     for(int it : nums){
     	cout << it << " ";
     }
- 
+
 	return 0;
+    
 }
 
 // INPUT : 5 1 1 2 0 0 
