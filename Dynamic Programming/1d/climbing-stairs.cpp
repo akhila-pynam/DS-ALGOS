@@ -38,7 +38,7 @@ int climbingStairs(int n){
 
 }
 
-int main(){
+int main(){ 
 
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
