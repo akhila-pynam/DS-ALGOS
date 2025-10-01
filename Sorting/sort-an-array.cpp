@@ -66,7 +66,7 @@ int sortArray(int n, vector<int>& nums){
 }
 
 int main(){
-
+	
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
