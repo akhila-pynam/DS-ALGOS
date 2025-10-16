@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int cnt = 0;
-void printNums(){
-     
-    if(cnt == 5) return;
+int nameCnt = 0;
+void name(){
 
-    cout << cnt << endl;
-    cnt++;
-
-    printNums();
+	if(nameCnt == 5) return;
+	cout << "Akhila Pynam" << endl;
+	nameCnt++;
+	
+	name();
 
 }
+
 int main(){
 
 	#ifndef ONLINE_JUDGE
@@ -19,7 +19,7 @@ int main(){
 	freopen("output.txt", "w", stdout);
 	#endif
 
-	printNums();
+	name();
 
 	return 0;
 
@@ -27,7 +27,8 @@ int main(){
 
 // OUTPUT : 
 
-// 1
-// 2
-// 3
-// 4
+// Akhila Pynam
+// Akhila Pynam
+// Akhila Pynam
+// Akhila Pynam
+// Akhila Pynam
