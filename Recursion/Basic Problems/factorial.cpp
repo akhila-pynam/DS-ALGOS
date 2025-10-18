@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int factorial(int n){
+int funcFact(int n){
 
-    if(n == 0) return 1;
+	if(n == 0) return 1;
 
-    return n * factorial(n-1);
+	return n * funcFact(n-1);
 
 }
 
@@ -19,16 +19,11 @@ int main(){
 	int n;
 	cin >> n;
 
-	int result = factorial(n);
+   int out = funcFact(n);
 
-	if(result){
-		cout << result << endl;
-	}
-	else{
-		cout << n << endl;
-	}
+   cout << out;
 
-	return 0;
+   return 0;
 
 }
 
