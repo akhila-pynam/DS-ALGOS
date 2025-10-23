@@ -3,9 +3,9 @@ using namespace std;
 
 void powerRecursion(int n, int ind){
     
-    int p = pow(3, ind);
+    int p = pow(3, ind); // in leetcode check constraints and give the data-type ( ong long ) etc
 
-    if(ind > n){
+    if(p > n){
        cout << 0; 
        return;
     }  
