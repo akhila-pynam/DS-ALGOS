@@ -2,67 +2,71 @@
 using namespace std;
 
 struct Node{
-
+   
     int data;
-    Node* right;
+    Node* next;
 
     Node(int val){
         data = val;
-        right = nullptr;
+        next = NULL;
     }
+
 };
 
 Node* head = NULL;
-void insert(int value){
-    
-    if(head == nullptr){
-        head = new Node(value);
-    }
-    else{
-        
-        Node* temp = head;
-        while(temp->right !=  nullptr){
-            temp = temp->right;
-        }
-        temp->right = new Node(value);
-    }
+
+void linkedList(int value){
      
+    if(head == NULL){
+       head = new Node(value);
+       return;
+    }
+
+    Node* temp = head;
+    while(temp->next != nullptr){
+        temp = temp->next;
+    }
+
+    temp->next = new Node(value);
+
 }
 
-void reverseLinkedlist(){
+void reverseLL(){
+
+    if(head == NULL){
+       return;
+    }
     
-    stack<int> st;
     Node* temp = head;
-    
+    stack<int> st;
+
     while(temp != nullptr){
         st.push(temp->data);
-        temp = temp->right;
+        temp = temp->next;
     }
-    
+
     temp = head;
-    while(temp != nullptr){
+    while (temp != NULL) {
         temp->data = st.top();
         st.pop();
-
-        temp = temp->right;
+        temp = temp->next;
     }
-
 
 }
 
 void display(){
-     
+
     Node* temp = head;
-    while(temp->right != nullptr){
+    while(temp->next != nullptr){
         cout << temp->data << " ";
-        temp = temp->right;
+        temp = temp->next;
     }
+
     cout << temp->data << " ";
 
 }
-
 int main(){
-    
+
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
@@ -72,14 +76,15 @@ int main(){
     cin >> n;
 
     for(int i=0; i<n; i++){
+        
         int value;
         cin >> value;
 
-        insert(value);
+        linkedList(value);
+
     }
 
-    reverseLinkedlist();
-
+    reverseLL();
     display();
 
     return 0;
