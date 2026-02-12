@@ -44,3 +44,17 @@ int main(){
 	return 0;
 
 }
+
+INPUT : 
+
+2 3
+2 9
+
+OUTPUT : 36
+
+INPUT : 
+
+1 1
+4 5
+
+OUTPUT : 25
