@@ -1,40 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int main(){
 
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    #endif
+	#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	#endif
 
-    int n;
-	int m;
-
-	cin >> n;
-	cin >> m;
-
-    int adj[n+1][n+1] = {0};
-
-    for (int i = 0; i < m; i++) {
+	int n, m;
+	cin >> n >> m;
  
-	    int u;
-		int v;
+    // int matrix[n][n] = {0};
+    vector<vector<int>> matrix(n, vector<int> (m,0));
 
-		cin >> u;
-		cin >> v;
+	for(int i=0; i<m; i++){
 
-	    adj[u][v] = 1;
-	    adj[v][u] = 1;
-        
-    }
+	   int u, v;
+	   cin >> u >> v;
 
-    for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) {
-            cout << adj[i][j] << " ";
-        }
-        cout << endl;
-    }
+	   matrix[u][v] = 1;
+	   matrix[v][u] = 1;
 
-    return 0;
+	}
+
+	for(int i=0; i<n; i++){
+		for(int j=0; j<m; j++){
+			cout << matrix[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	return 0;
+
 }
+
+INPUT :
+
+4 4
+0 1
+0 2
+1 2
+2 3
+
+
+OUTPUT : 
+
+0 1 1 0 
+1 0 1 0 
+1 1 0 1 
+0 0 1 0 
