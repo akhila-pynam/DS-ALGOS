@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int squareRoot(int n, int* nums){
+int sqrtBs(int n){
 
 // Brutal Solution
 // 	int ans = 1;
@@ -15,26 +15,24 @@ int squareRoot(int n, int* nums){
 
 // Optimal Solution Using Binary Search
 
-	int left = 1;
-	int right = n;
-	int ans = 1;
+	long long left = 1;
+	long long right = n/2;
+	long long ans = 1;
+
+	if(n == 0 || n == 1) return n;
 
 	while(left <= right){
 
-		int mid = (left + right)/2;
+		long long mid = (left + right)/2;
 
-		if(mid*mid == n){
+		if(mid*mid <= n) {
 			ans = mid;
-			break;
-		}
-
-		if(mid*mid < n){
-           ans = mid;
-           left = mid + 1;
+			low = mid + 1;
 		}
 		else{
-			right = mid - 1;
+			high = mid - 1;
 		}
+
 	}
 
 	return ans;
@@ -51,13 +49,8 @@ int main(){
 	int n;
 	cin >> n;
 
-	int nums[n];
-	for(int i=1; i<=n; i++){
-		nums[i] = i;
-	}
-
-	int result = squareRoot(n, nums);
-	cout << result;
+	cout << sqrtBs(n);
 
 	return 0;
+
 }
