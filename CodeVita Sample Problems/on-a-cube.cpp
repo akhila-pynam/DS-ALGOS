@@ -9,7 +9,9 @@ int main(){
     #endif
     
     int n;
-    
+    cin >> n;
+
 
 
 }
+
